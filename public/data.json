@@ -1,0 +1,142 @@
+{
+    "name":"Quick",
+    "users":[
+        {
+            "userid":"admin@gmail.com",
+            "password":"admin",
+            "un_id":"01",
+            "usertype":"admin"
+        },
+        {
+            "userid":"employy@gmail.com",
+            "password":"emplloyee1",
+            "un_id":"02",
+            "usertype":"employee1"
+        }
+    ],
+
+   "dataSource": [
+      {
+        "key": "1",
+        "id": 1,
+        "name": "Alice",
+        "age": 28,
+        "city": "New York",
+        "country": "USA",
+        "occupation": "Engineer",
+        "email": "alice@example.com",
+        "phone": "555-1234",
+        "joined": "2021-01-15"
+      },
+      {
+        "key": "2",
+        "id": 2,
+        "name": "Bob",
+        "age": 34,
+        "city": "London",
+        "country": "UK",
+        "occupation": "Designer",
+        "email": "bob@example.com",
+        "phone": "555-5678",
+        "joined": "2020-05-20"
+      },
+      {
+        "key": "3",
+        "id": 3,
+        "name": "Carol",
+        "age": 22,
+        "city": "Sydney",
+        "country": "Australia",
+        "occupation": "Teacher",
+        "email": "carol@example.com",
+        "phone": "555-8765",
+        "joined": "2022-03-11"
+      },
+      {
+        "key": "4",
+        "id": 4,
+        "name": "David",
+        "age": 30,
+        "city": "Toronto",
+        "country": "Canada",
+        "occupation": "Developer",
+        "email": "david@example.com",
+        "phone": "555-4321",
+        "joined": "2021-07-30"
+      },
+      {
+        "key": "5",
+        "id": 5,
+        "name": "Eva",
+        "age": 26,
+        "city": "Berlin",
+        "country": "Germany",
+        "occupation": "Writer",
+        "email": "eva@example.com",
+        "phone": "555-2345",
+        "joined": "2022-01-05"
+      },
+      {
+        "key": "6",
+        "id": 6,
+        "name": "Frank",
+        "age": 45,
+        "city": "Paris",
+        "country": "France",
+        "occupation": "Manager",
+        "email": "frank@example.com",
+        "phone": "555-6789",
+        "joined": "2019-11-25"
+      },
+      {
+        "key": "7",
+        "id": 7,
+        "name": "Grace",
+        "age": 29,
+        "city": "Tokyo",
+        "country": "Japan",
+        "occupation": "Analyst",
+        "email": "grace@example.com",
+        "phone": "555-3456",
+        "joined": "2023-02-14"
+      },
+      {
+        "key": "8",
+        "id": 8,
+        "name": "Henry",
+        "age": 38,
+        "city": "Madrid",
+        "country": "Spain",
+        "occupation": "Chef",
+        "email": "henry@example.com",
+        "phone": "555-7890",
+        "joined": "2020-09-09"
+      },
+      {
+        "key": "9",
+        "id": 9,
+        "name": "Ivy",
+        "age": 31,
+        "city": "Rome",
+        "country": "Italy",
+        "occupation": "Architect",
+        "email": "ivy@example.com",
+        "phone": "555-1235",
+        "joined": "2021-12-12"
+      },
+      {
+        "key": "10",
+        "id": 10,
+        "name": "Jack",
+        "age": 27,
+        "city": "Mumbai",
+        "country": "India",
+        "occupation": "Consultant",
+        "email": "jack@example.com",
+        "phone": "555-9876",
+        "joined": "2022-08-01"
+      }
+    ]
+    
+}
+
