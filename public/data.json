@@ -1,20 +1,21 @@
 {
     "name":"Quick",
     "users":[
-        {
+        {    "key":"1",
             "userid":"admin@gmail.com",
             "password":"admin",
-            "un_id":"01",
+            "u_id":"QU25000",
             "usertype":"admin"
         },
-        {
+        { 
+            "key":"2",
             "userid":"employy@gmail.com",
             "password":"emplloyee1",
-            "un_id":"02",
+            "u_id":"QU25001",
             "usertype":"employee1"
         }
+        
     ],
-
    "dataSource": [
       {
         "key": "1",
@@ -136,7 +137,261 @@
         "phone": "555-9876",
         "joined": "2022-08-01"
       }
+    ],
+    "userType":[
+      { "key": "1",
+       "name": "User"
+      },
+      { 
+        "key": 2,
+         "name": "Staff"
+         },
+      { "key": 3,
+       "name": "Patient"
+      }
+      
+
+    ],
+    "occupation":[
+      {  
+        "key": "1",
+        "name": "Developer"
+      },
+      { 
+        "key": 2,
+        "name": "tester"
+      } 
+    ],
+    "departments": [
+    {
+      "name": "Emergency Room",
+      "key": 1,
+      "minimumDoctors": 10
+    },
+    {
+      "name": "Intensive Care Unit",
+      "key": 2,
+      "minimumDoctors": 5
+    },
+    {
+      "name": "Pediatrician",
+      "key": 3,
+      "minimumDoctors": 8
+    },
+    {
+      "name": "Surgery",
+      "key": 4,
+      "minimumDoctors": 6
+    },
+    {
+      "name": "Radiology",
+      "key": 5,
+      "minimumDoctors": 4
+    },
+    {
+      "name": "Oncologist",
+      "key": 6,
+      "minimumDoctors": 3
+    },
+    {
+      "name": "Cardiologist",
+      "key": 7,
+      "minimumDoctors": 5
+    },
+    {
+      "name": "Neurologist",
+      "key": 8,
+      "minimumDoctors": 4
+    }
+    ],
+    "doctors":[
+    {
+        "id": 1,
+        "name": "Dr. John Smith",
+        "specialization": "Cardiologist",
+        "phone": "555-1234",
+        "email": "john.smith@hospital.com",
+        "hospital": "City Heart Hospital",
+        "location": "New York, NY",
+        "verification":true,
+        "schedule": {
+            "Monday": "9:00 AM - 5:00 PM",
+            "Tuesday": "9:00 AM - 5:00 PM",
+            "Wednesday": "9:00 AM - 5:00 PM",
+            "Thursday": "9:00 AM - 5:00 PM",
+            "Friday": "9:00 AM - 3:00 PM"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dr. Emily Johnson",
+        "specialization": "Neurologist",
+        "phone": "555-5678",
+        "email": "emily.johnson@hospital.com",
+        "hospital": "State Brain Institute",
+        "location": "Los Angeles, CA",
+        "verification":false,
+        "schedule": {
+            "Monday": "10:00 AM - 4:00 PM",
+            "Tuesday": "10:00 AM - 4:00 PM",
+            "Wednesday": "10:00 AM - 4:00 PM",
+            "Thursday": "10:00 AM - 4:00 PM",
+            "Friday": "Closed"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Dr. Michael Brown",
+        "specialization": "Pediatrician",
+        "phone": "555-8765",
+        "email": "michael.brown@hospital.com",
+        "hospital": "Children's Health Center",
+        "location": "Chicago, IL",
+        "verification":true,
+        "schedule": {
+            "Monday": "8:00 AM - 3:00 PM",
+            "Tuesday": "8:00 AM - 3:00 PM",
+            "Wednesday": "8:00 AM - 3:00 PM",
+            "Thursday": "8:00 AM - 3:00 PM",
+            "Friday": "8:00 AM - 12:00 PM"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Dr. Sarah Davis",
+        "specialization": "Orthopedic Surgeon",
+        "phone": "555-4321",
+        "email": "sarah.davis@hospital.com",
+        "hospital": "City Orthopedic Clinic",
+        "location": "Houston, TX",
+        "verification":true,
+        "schedule": {
+            "Monday": "9:00 AM - 6:00 PM",
+            "Tuesday": "9:00 AM - 6:00 PM",
+            "Wednesday": "9:00 AM - 6:00 PM",
+            "Thursday": "9:00 AM - 6:00 PM",
+            "Friday": "9:00 AM - 2:00 PM"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Dr. David Wilson",
+        "specialization": "Dermatologist",
+        "phone": "555-2345",
+        "email": "david.wilson@hospital.com",
+        "hospital": "Skin Health Institute",
+        "location": "Phoenix, AZ",
+        "verification":false,
+        "schedule": {
+            "Monday": "9:00 AM - 5:00 PM",
+            "Tuesday": "9:00 AM - 5:00 PM",
+            "Wednesday": "9:00 AM - 5:00 PM",
+            "Thursday": "10:00 AM - 5:00 PM",
+            "Friday": "Closed"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Dr. Jessica Martinez",
+        "specialization": "Endocrinologist",
+        "phone": "555-6789",
+        "email": "jessica.martinez@hospital.com",
+        "hospital": "Metabolic Health Center",
+        "location": "Philadelphia, PA",
+        "verification":false,
+        "schedule": {
+            "Monday": "10:00 AM - 5:00 PM",
+            "Tuesday": "10:00 AM - 5:00 PM",
+            "Wednesday": "10:00 AM - 5:00 PM",
+            "Thursday": "10:00 AM - 5:00 PM",
+            "Friday": "Closed"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Dr. Daniel Garcia",
+        "specialization": "Gastroenterologist",
+        "phone": "555-3456",
+        "email": "daniel.garcia@hospital.com",
+        "hospital": "Digestive Health Clinic",
+        "location": "San Antonio, TX",
+        "verification":false,
+        "schedule": {
+            "Monday": "9:00 AM - 4:00 PM",
+            "Tuesday": "9:00 AM - 4:00 PM",
+            "Wednesday": "9:00 AM - 4:00 PM",
+            "Thursday": "9:00 AM - 4:00 PM",
+            "Friday": "9:00 AM - 1:00 PM"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Dr. Michelle Lee",
+        "specialization": "Psychiatrist",
+        "phone": "555-9876",
+        "email": "michelle.lee@hospital.com",
+        "hospital": "Mental Wellness Institute",
+        "location": "San Diego, CA",
+        "verification":true,
+        "schedule": {
+            "Monday": "10:00 AM - 6:00 PM",
+            "Tuesday": "10:00 AM - 6:00 PM",
+            "Wednesday": "10:00 AM - 6:00 PM",
+            "Thursday": "10:00 AM - 6:00 PM",
+            "Friday": "Closed"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Dr. Brian Rodriguez",
+        "specialization": "Oncologist",
+        "phone": "555-6543",
+        "email": "brian.rodriguez@hospital.com",
+        "hospital": "Cancer Care Center",
+        "location": "Dallas, TX",
+        "verification":false,
+        "schedule": {
+            "Monday": "9:00 AM - 5:00 PM",
+            "Tuesday": "9:00 AM - 5:00 PM",
+            "Wednesday": "9:00 AM - 5:00 PM",
+            "Thursday": "9:00 AM - 5:00 PM",
+            "Friday": "9:00 AM - 3:00 PM"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Dr. Anna Wilson",
+        "specialization": "Ophthalmologist",
+        "phone": "555-3210",
+        "email": "anna.wilson@hospital.com",
+        "hospital": "Eye Health Clinic",
+        "location": "Austin, TX",
+        "verification":false,
+        "schedule": {
+            "Monday": "9:00 AM - 5:00 PM",
+            "Tuesday": "9:00 AM - 5:00 PM",
+            "Wednesday": "9:00 AM - 5:00 PM",
+            "Thursday": "Closed",
+            "Friday": "9:00 AM - 2:00 PM"
+        }
+    },
+    {
+      "id": 11,
+      "name": "Dr. Brian ",
+      "specialization": "Oncologist",
+      "phone": "555-6543",
+      "email": "brian.rodriguez@hospital.com",
+      "hospital": "Cancer Care Center",
+      "location": "Dallas, TX",
+      "verification":false,
+      "schedule": {
+          "Monday": "9:00 AM - 5:00 PM",
+          "Tuesday": "9:00 AM - 5:00 PM",
+          "Wednesday": "9:00 AM - 5:00 PM",
+          "Thursday": "9:00 AM - 5:00 PM",
+          "Friday": "9:00 AM - 3:00 PM"
+      }
+  }
     ]
-    
 }
 

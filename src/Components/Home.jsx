@@ -6,25 +6,36 @@ import {
   UserOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-
+  SettingOutlined,
+  // UserDeleteOutlined,
   
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme,Button} from 'antd';
-import SubMenu from 'antd/es/menu/SubMenu';
+// import SubMenu from 'antd/es/menu/SubMenu';
 import {Routes,Route,useLocation, Link} from 'react-router-dom';
 import About from './About';
-import Contents from './Content'
 import DashBoard from './DashBoard';
 import Users from './User Management/Users';
 import Add_Users from './User Management/Add_Users';
 import Edit_Users from './User Management/Edit_Users';
-import Delete_Users from './User Management/Delete_Users';
 import Patients from './Patient Management/Patients';
+import Appointment from './Appointment';
+import Profile from './Profile';
+import PatientProfile from './Patient Management/PatientProfile';
+import Add_Patient from './Patient Management/Add_Patients';
+import Doctor_Profiles from './Doctor Management/Doctor_Profiles';
+import Doctors from './Doctor Management/Doctors';
+import Settings from './Settings/Settings';
+import Edit_patients from './Patient Management/Edit_patients';
+import Master from './User Management/Master';
+import UserDetail from './User Management/UserDetail';
+import PasswordChange from './Settings/PasswordChange';
+// import Edit_patients from './Patient Management/Edit_patients';
 
 const { Header, Content,  Sider } = Layout;
 
 const Home = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const path=useLocation()
   
   const {
@@ -40,62 +51,164 @@ const Home = () => {
   };
   const newString = removeFirstLetter(path.pathname);
 
-  const menuItem = [
+  // const menuItem = [
+    
+  //   {
+  //     name:'About',
+  //     icon:<PieChartOutlined/>,
+  //     path:'about',
+  //     key:12
+  //   },
+  // ]
+
+  // const subItems = [
+  //   {
+  //     subName:'Users Management',
+  //     key:105,
+  //     subItems:[
+  //       {
+  //         name:'Users',
+  //         icon:<TeamOutlined/>,
+  //         path:'users',
+  //         key:501
+  //       },
+  //       {
+  //         name:'Edit Users',
+  //         icon:<TeamOutlined/>,
+  //         path:'editusers',
+  //         key:502
+  //       },
+  //       {
+  //         name:'Delete Users',
+  //         icon:<TeamOutlined/>,
+  //         path:'deleteusers',
+  //         key:503
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     subName:'Patient Management',
+  //     key:106,
+  //     subItems:[
+  //       {
+  //         name:'Patient',
+  //         icon:<TeamOutlined/>,
+  //         path:'patients',
+  //         key:601
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     subName:'Doctor Management',
+  //     key:107,
+  //     subItems:[
+  //       {
+  //         name:'Doctors',
+  //         icon:<TeamOutlined/>,
+  //         path:'doctorslist',
+  //         key:602
+  //       },
+  //     ]
+  //   },
+   
+  // ]
+  const menuItems = [
     {
-      name:'Content',
-      icon:<UserOutlined/>,
-      path:'content',
-      key:11
+      key: 0,
+      icon: <DesktopOutlined />,
+      label: <Link to="/" onClick={handleClick}>DashBoard</Link>,
     },
     {
-      name:'About',
-      icon:<PieChartOutlined/>,
-      path:'about',
-      key:12
-    },
-  ]
-  const subItems = [
-    {
-      subName:'Users Management',
-      key:105,
-      subItems:[
+      key: 105,
+      label: 'Users Management',
+      icon: <UserOutlined />,
+      children: [
         {
-          name:'Users',
-          icon:<TeamOutlined/>,
-          path:'users',
-          key:501
+          key: 501,
+          icon: <TeamOutlined />,
+          label: <Link to="/users" onClick={handleClick}>Users</Link>,
         },
         {
-          name:'Edit Users',
-          icon:<TeamOutlined/>,
-          path:'editusers',
-          key:502
+          key: 502,
+          icon: <TeamOutlined />,
+          label: <Link to="/adduser" onClick={handleClick}>Add Users</Link>,
         },
         {
-          name:'Delete Users',
-          icon:<TeamOutlined/>,
-          path:'deleteusers',
-          key:503
+          key: 503,
+          icon: <TeamOutlined />,
+          label: <Link to="/master" onClick={handleClick}>Master</Link>,
         },
-      ]
+        
+      ],
     },
     {
-      subName:'Patient Management',
-      key:106,
-      subItems:[
+      key: 106,
+      label: 'Patient Management',
+      icon: <UserOutlined />,
+      children: [
         {
-          name:'Patient',
-          icon:<TeamOutlined/>,
-          path:'patients',
-          key:601
+          key: 601,
+          icon: <TeamOutlined />,
+          label: <Link to="/patients" onClick={handleClick}>Patients</Link>,
         },
-      ]
+        {
+          key: 608,
+          icon: <TeamOutlined />,
+          label: <Link to="addpatient" onClick={handleClick}>Add Patient</Link>,
+        },
+      ],
     },
-  ]
+    {
+      key: 107,
+      label: 'Doctor Management',
+      icon: <UserOutlined />,
+      children: [
+        {
+          key: 602,
+          icon: <TeamOutlined />,
+          label: <Link to="/doctorslist" onClick={handleClick}>Doctors</Link>,
+        },
+      ],
+    },
+    // {
+    //   key: 108,
+    //   label: 'Reporting ',
+    //   icon: <UserOutlined />,
+    //   children: [
+    //     {
+    //       key: 511,
+    //       icon: <TeamOutlined />,
+    //       label: <Link to="/patients Report" onClick={handleClick}>Users</Link>,
+    //     },
+    //     {
+    //       key: 512,
+    //       icon: <TeamOutlined />,
+    //       label: <Link to="/doctor report" onClick={handleClick}>Edit Users</Link>,
+    //     },
+    //     {
+    //       key: 513,
+    //       icon: <UserDeleteOutlined />,
+    //       label: <Link to="/" onClick={handleClick}>Delete Users</Link>,
+    //     },
+    //   ],
+    // },
+    {
+      key: 12,
+      icon: <PieChartOutlined />,
+      label: <Link to="/about" onClick={handleClick}>About</Link>,
+    },
+    {
+      key: 13,
+      icon: <SettingOutlined />,
+      label: <Link to="/settings" onClick={handleClick}>Settings</Link>,
+    },
+    
+  ];
+  
   const siderStyle = {
     overflow: 'auto',
     height: '100vh',
-    position: 'fixed',
+    // position: 'fixed',
     insetInlineStart: 0,
     top: 0,
     bottom: 0,
@@ -107,14 +220,15 @@ const Home = () => {
     <Layout style={{minHeight: '100vh',}}>
       <Sider style={siderStyle}  collapsed={collapsed}  >
         <div className="demo-logo-vertical " />
-        <Menu
+        {/* <Menu
           theme='dark'
           mode="inline"
+          
           defaultSelectedKeys={['0']}
-          style={{ height: '100%', borderRight: 0,padding:0 }}
+          style={{ height: '100%', borderRight: 0,padding:0}}
         >
-           <Menu.Item key={0} icon={<DesktopOutlined/>}>
-          <Link to={'/'}>DashBoard</Link>
+           <Menu.Item key={0} icon={<DesktopOutlined/>} >
+          <Link to={'/'} onClick={handleClick}>DashBoard</Link>
           </Menu.Item>
           {
           subItems?.map((subItem) => (
@@ -136,9 +250,16 @@ const Home = () => {
           </Menu.Item>
             ))
           } 
-        </Menu>     
+        </Menu>      */}
+      <Menu
+              theme="dark"
+              mode="inline"
+              defaultSelectedKeys={['0']}
+              style={{ height: '100%', borderRight: 0, padding: 0 }}
+              items={menuItems}
+            />
       </Sider>
-      <Layout style={{marginInlineStart:collapsed?80:200}}>
+      <Layout style={{}}>
       <Header style={{ padding: 0, background: colorBgContainer,display:'flex' }}>        
      <Button
             type="text"
@@ -157,35 +278,49 @@ const Home = () => {
         </Header>
         <Content
           style={{
-            margin: '0 16px',
+            margin: '0 10px',
+            
           }}
         >
           <Breadcrumb
+          items={[
+            { title: newString }
+          ]}
             style={{
-              margin: '16px 0',
+              margin: '10px 0',
             }}
           >
             {/* <Breadcrumb.Item>Product Management</Breadcrumb.Item> */}
-            <Breadcrumb.Item> {newString} </Breadcrumb.Item>
+            {/* <Breadcrumb.Item> {newString} </Breadcrumb.Item> */}
           </Breadcrumb>
           <div
             style={{
-              padding: 15,
-              maxHeight: 492,
+              padding: 10,
+              maxHeight: 510,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
-              overflowY:'auto'
+              overflowY:'auto',
             }}
           >
             <Routes>
-              <Route path='/' element={<DashBoard/>}></Route>
-              <Route path='/about' element={<About/>}></Route>
-              <Route path='/content' element={<Contents/>}></Route>
-              <Route path='/users' element={<Users/>}></Route>
-              <Route path='/users/adduser' element={<Add_Users/>}></Route>
-              <Route path='editusers' element={<Edit_Users/>}></Route>
-              <Route path='/deleteusers' element={<Delete_Users/>}></Route>
-              <Route path='/patients' element={<Patients/>}></Route>
+              <Route path="/*" element={<DashBoard />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/users/*" element={<Users />} />
+              <Route path='user/:id' element={<UserDetail/>}></Route>
+              <Route path="/adduser" element={<Add_Users />} />
+              <Route path="/master" element={<Master />} />
+              <Route path="/editusers" element={<Edit_Users />} />
+              <Route path="/patients" element={<Patients />} />
+              <Route path="/doctorslist" element={<Doctors />} />
+              <Route path="/appointment" element={<Appointment />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/patient/:id" element={<PatientProfile />} />
+              <Route path="/addpatient" element={<Add_Patient />} />
+              <Route path="/d-profile/:id" element={<Doctor_Profiles />} />
+              <Route path='settings' element={<Settings/>}></Route>
+              <Route path='/change_password' element={<PasswordChange/>}></Route>
+              <Route path='editpatient/:id' element={<Edit_patients/>}></Route>
+
             </Routes>
           </div>
         </Content>
