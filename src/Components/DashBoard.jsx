@@ -14,8 +14,14 @@ import {
     Legend,
     ResponsiveContainer,
   } from 'recharts';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function DashBoard(){
+function DashBoard(){  
+    const [dataSource, setDataSource] = useState([]);
+    console.log(dataSource);
+    
+//   const [filteredData, setFilteredData] = useState([]);
     const style = {
         padding: '1px 0',
       };
@@ -42,6 +48,26 @@ function DashBoard(){
         { name: 'Jun', sales: 85 },
         { name: 'Jul', sales: 60 },
       ];
+      useEffect(()=>{
+        const currentDate = new Date().toLocaleDateString();
+        
+        const fetchSource = async () => {
+            const result = await axios.post('http://localhost:3004/dashboard',{currentDate});
+           
+            console.log(result.data);
+
+            if(result.data.status){
+              setDataSource(result.data);
+            //   setFilteredData(data.data)// Initialize filtered data
+            }
+            else{
+              console.log('api error ');
+              
+            }
+          
+          };
+          fetchSource();
+      },[])
     return(
         <Row className="gap-2 ">
             <Divider orientation="left">DashBoard</Divider>
@@ -102,11 +128,11 @@ function DashBoard(){
                             <div className='flex gap-2  me-4'>
                                 <div className='rounded-full  w-10 h-10 flex justify-center items-center text-blue-500 bg-blue-200'><FormOutlined /></div>
                                 <div>
-                                   <p className='text-sm font-bold'>2154</p>
+                                   <p className='text-sm font-bold'>{dataSource.appointment}</p>
                                    <p className='text-xs text-gray-400'>Appointment</p> 
                                 </div>
                             </div>
-                            <p className='text-xs mt-4 ms-2'><span className='text-blue-500'> 120</span> Today appointment</p>
+                            <p className='text-xs mt-4 ms-2'><span className='text-blue-500'> {dataSource.todayAppointment}</span> Today appointment</p>
                          </div>
                         {/* </Link> */}
                     </div>

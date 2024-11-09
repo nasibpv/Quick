@@ -61,7 +61,7 @@ function Patients(){
         <div >
           <div className="flex justify-between w-full mb-2 items-center">
                 <h4 className="">Users Details</h4>
-                <Input type="text" className="" style={{width:'40%'}}  placeholder="Search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+                <Input type="text" className="" style={{width:'40%'}}  placeholder="Search UHID" value={search} onChange={(e)=>setSearch(e.target.value)}/>
             </div>
             <div>
               {/* <div className="pt-2">

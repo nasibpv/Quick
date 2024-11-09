@@ -161,9 +161,9 @@ function Appointment() {
                         </Col>
                     </Row>
 
-                    <div className='p-2 justify-end flex gap-2'>
-                        <Form.Item>
-                            <Button type="primary" onClick={() => navigate('/')}>
+                    <div className='pt-2 flex justify-end  '>
+                        <Form.Item >
+                            <Button  type="primary" className='me-2' onClick={() => navigate('/')}>
                                 Close
                             </Button>
                             <Button type="primary" htmlType="submit">

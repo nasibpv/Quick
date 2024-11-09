@@ -1,4 +1,5 @@
 import { Button,  Modal, Input, message } from 'antd';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 
@@ -8,14 +9,13 @@ function UserType(){
     const [open, setOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [userTypes, setUserTypes] = useState([]);
-    
+    const fetchData = async () => {
+      const response = await axios.get('http://localhost:3004/usertype');
+      setUserTypes(response.data.data);
+    };
     // Fetch data on component mount
     useEffect(() => {
-      const fetchData = async () => {
-        const result = await fetch('data.json');
-        const data = await result.json();
-        setUserTypes(data.userType);
-      };
+     
       fetchData();
     }, []);
   
@@ -34,32 +34,43 @@ function UserType(){
       setId(lastKey);
       setOpen(true);
       setIsEditing(false);
+      
+      
     };
   
-    const handleDelete = (key) => {
-      const newData = userTypes.filter(item => item.key !== key);
-      userTypes(newData);
+    const handleDelete = async(key) => {
+      const response = await axios.post('http://localhost:3004/newUsertype',{key:key,name:'',type:'edit'});
+        if(response.data.status){
+          fetchData();
+          message.success(`Edited User: ${name}`);
+        }
       message.success('User deleted successfully');
     };
   
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
       if (!name) {
         message.error('Please enter a name');
         return;
       }
+
   
       if (isEditing) {
-        const updatedData = userTypes.map(item =>
-          item.key === id ? { ...item, name } : item
-        );
-        setUserTypes(updatedData);
-        message.success(`Edited User: ${name}`);
+        const response = await axios.post('http://localhost:3004/newUsertype',{key:id,name:name,type:'edit'});
+        if(response.data.status){
+          fetchData();
+          message.success(`Edited User: ${name}`);
+        }
+        
       } else {
-        const newUser = { key: lastKey.toString(), name };
-        setUserTypes([...userTypes, newUser]);
+        // const newUser = { key: lastKey.toString(), name };
+        // setUserTypes([...userTypes, newUser]);
+        const response = await axios.post('http://localhost:3004/newUsertype',{key:id,name:name,type:'post'});
+        console.log(response);
+        if(response.data.status){
+          fetchData();
         message.success(`Added New User: ${name}`);
+        }
       }
-  
       setOpen(false);
     };
   
