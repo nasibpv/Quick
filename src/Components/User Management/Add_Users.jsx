@@ -56,7 +56,7 @@ function AddUsers() {
   }, []);
 
   return (
-    <div>
+    <div className='w-full sm:w-4/5 p-5 border rounded '>
       <Form
       form={form}
         name="layout-multiple-horizontal"

@@ -84,8 +84,8 @@ function Appointment() {
     }, []);
 
     return (
-        <div>
-            <div className="p-2">
+        <div className='min-h-[75vh]'>
+            <div className="w-full sm:w-4/5 p-5 border rounded ">
                 <Form
                     name="layout-multiple-horizontal"
                     layout="vertical"

@@ -35,7 +35,7 @@ function Patients(){
     const fetchSource = async () => {
       const result = await fetch('http://localhost:3004/patients');
       const data = await result.json();
-      console.log(data);
+      console.log(data.data);
       if(data.status){
         setDataSource(data.data);
         setFilteredData(data.data)// Initialize filtered data
@@ -61,7 +61,7 @@ function Patients(){
         <div >
           <div className="flex justify-between w-full mb-2 items-center">
                 <h4 className="">Users Details</h4>
-                <Input type="text" className="" style={{width:'40%'}}  placeholder="Search UHID" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+                <Input type="text" className="" style={{width:'40%'}}  placeholder="Search Name" value={search} onChange={(e)=>setSearch(e.target.value)}/>
             </div>
             <div>
               {/* <div className="pt-2">

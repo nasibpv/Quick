@@ -30,6 +30,7 @@ import Edit_patients from './Patient Management/Edit_patients';
 import Master from './User Management/Master';
 import UserDetail from './User Management/UserDetail';
 import PasswordChange from './Settings/PasswordChange';
+import PermissionManagement from './Settings/PermissionManagement';
 // import Edit_patients from './Patient Management/Edit_patients';
 
 const { Header, Content,  Sider } = Layout;
@@ -114,7 +115,7 @@ const Home = () => {
   // ]
   const menuItems = [
     {
-      key: 0,
+      key: 10.1,
       icon: <DesktopOutlined />,
       label: <Link to="/" onClick={handleClick}>DashBoard</Link>,
     },
@@ -213,7 +214,7 @@ const Home = () => {
     top: 0,
     bottom: 0,
     scrollbarWidth: 'thin',
-    scrollbarColor: 'unset',
+    // scrollbarColor: 'unset',
   };
   
   return (
@@ -319,6 +320,7 @@ const Home = () => {
               <Route path="/d-profile/:id" element={<Doctor_Profiles />} />
               <Route path='settings' element={<Settings/>}></Route>
               <Route path='/change_password' element={<PasswordChange/>}></Route>
+              <Route path='/permission-management' element={<PermissionManagement/>}></Route>
               <Route path='editpatient/:id' element={<Edit_patients/>}></Route>
 
             </Routes>

@@ -45,7 +45,7 @@ function Add_Patient () {
     fetchData();
   },[])
 return (
-  <div className='p-5'>
+  <div className='w-full sm:w-4/5 p-2 border rounded '>
     <Form
       name="layout-multiple-horizontal"
       layout="vertical"

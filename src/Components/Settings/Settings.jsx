@@ -13,16 +13,12 @@ const data = [
   },
   {
     Key:3,
-    label:<Link to={'/'}>Permisssion Management</Link>
+    label:<Link to={'/permission-management'}>Permission Management</Link>
   },
   // {
-  //   Key:1,
-  //   label:<Link to={'/'}>Side settingd</Link>
+  //   Key:4,
+  //   label:<Link to={'/'}>Home</Link>
   // },
-  {
-    Key:4,
-    label:<Link to={'/'}>Home</Link>
-  },
 ];
 
 const Settings = () => (

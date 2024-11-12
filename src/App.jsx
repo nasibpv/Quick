@@ -19,6 +19,7 @@ import Edit_patients from './Components/Patient Management/Edit_patients';
 import Master from './Components/User Management/Master';
 import UserDetail from './Components/User Management/UserDetail';
 import PasswordChange from './Components/Settings/PasswordChange';
+import PermissionManagement from './Components/Settings/PermissionManagement';
 function App() {
 
 
@@ -44,6 +45,8 @@ function App() {
           <Route path="d-profile/:id" element={<Doctor_Profiles />} />
           <Route path='settings' element={<Settings/>}></Route>
           <Route path='change_password' element={<PasswordChange/>}></Route>
+          <Route path='permission-management' element={<PermissionManagement/>}></Route>
+
           <Route path='editpatient/:id' element={<Edit_patients/>}></Route>
 
         </Route>
