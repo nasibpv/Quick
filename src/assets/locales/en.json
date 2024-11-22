@@ -1,0 +1,69 @@
+[
+    {
+      "key": 10.1,
+      "icon": "<DesktopOutlined />",
+      "label": "<Link to='/' onClick={handleClick}>DashBoard</Link>"
+    },
+    {
+      "key": 105,
+      "label": "Users Management",
+      "icon": "<UserOutlined />",
+      "children": [
+        {
+          "key": 501,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='/users' onClick={handleClick}>Users</Link>"
+        },
+        {
+          "key": 502,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='/adduser' onClick={handleClick}>Add Users</Link>"
+        },
+        {
+          "key": 503,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='/master' onClick={handleClick}>Master</Link>"
+        }
+      ]
+    },
+    {
+      "key": 106,
+      "label": "Patient Management",
+      "icon": "<UserOutlined />",
+      "children": [
+        {
+          "key": 601,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='/patients' onClick={handleClick}>Patients</Link>"
+        },
+        {
+          "key": 608,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='addpatient' onClick={handleClick}>Add Patient</Link>"
+        }
+      ]
+    },
+    {
+      "key": 107,
+      "label": "Doctor Management",
+      "icon": "<UserOutlined />",
+      "children": [
+        {
+          "key": 602,
+          "icon": "<TeamOutlined />",
+          "label": "<Link to='/doctorslist' onClick={handleClick}>Doctors</Link>"
+        }
+      ]
+    },
+    {
+      "key": 12,
+      "icon": "<PieChartOutlined />",
+      "label": "<Link to='/about' onClick={handleClick}>About</Link>"
+    },
+    {
+      "key": 13,
+      "icon": "<SettingOutlined />",
+      "label": "<Link to='/settings' onClick={handleClick}>Settings</Link>"
+    }
+  ]
+  

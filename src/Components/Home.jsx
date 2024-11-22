@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -10,7 +10,7 @@ import {
   // UserDeleteOutlined,
   
 } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme,Button} from 'antd';
+import { Breadcrumb, Layout, Menu, theme,Button,  Select} from 'antd';
 // import SubMenu from 'antd/es/menu/SubMenu';
 import {Routes,Route,useLocation, Link} from 'react-router-dom';
 import About from './About';
@@ -31,12 +31,14 @@ import Master from './User Management/Master';
 import UserDetail from './User Management/UserDetail';
 import PasswordChange from './Settings/PasswordChange';
 import PermissionManagement from './Settings/PermissionManagement';
-// import Edit_patients from './Patient Management/Edit_patients';
 
-const { Header, Content,  Sider } = Layout;
+
+const { Header, Content,  Sider,Footer } = Layout;
 
 const Home = () => {
   const [collapsed, setCollapsed] = useState(true);
+  const [selectedLanguage, setSelectedLanguage] = useState(null); 
+
   const path=useLocation()
   
   const {
@@ -205,7 +207,84 @@ const Home = () => {
     },
     
   ];
+
+  // arabic
   
+  const menuItemsArabic = [
+    {
+      key: 10.1,
+      icon: <DesktopOutlined />,
+      label: <Link to="/" onClick={handleClick}>لوحة القيادة</Link>, // Dashboard in Arabic
+    },
+    {
+      key: 105,
+      label: 'إدارة المستخدمين', // Users Management in Arabic
+      icon: <UserOutlined />,
+      children: [
+        {
+          key: 501,
+          icon: <TeamOutlined />,
+          label: <Link to="/users" onClick={handleClick}>المستخدمون</Link>, // Users in Arabic
+        },
+        {
+          key: 502,
+          icon: <TeamOutlined />,
+          label: <Link to="/adduser" onClick={handleClick}>إضافة مستخدم</Link>, // Add Users in Arabic
+        },
+        {
+          key: 503,
+          icon: <TeamOutlined />,
+          label: <Link to="/master" onClick={handleClick}>الأساسيات</Link>, // Master in Arabic
+        },
+      ],
+    },
+    {
+      key: 106,
+      label: 'إدارة المرضى', // Patient Management in Arabic
+      icon: <UserOutlined />,
+      children: [
+        {
+          key: 601,
+          icon: <TeamOutlined />,
+          label: <Link to="/patients" onClick={handleClick}>المرضى</Link>, // Patients in Arabic
+        },
+        {
+          key: 608,
+          icon: <TeamOutlined />,
+          label: <Link to="addpatient" onClick={handleClick}>إضافة مريض</Link>, // Add Patient in Arabic
+        },
+      ],
+    },
+    {
+      key: 107,
+      label: 'إدارة الأطباء', // Doctor Management in Arabic
+      icon: <UserOutlined />,
+      children: [
+        {
+          key: 602,
+          icon: <TeamOutlined />,
+          label: <Link to="/doctorslist" onClick={handleClick}>الأطباء</Link>, // Doctors in Arabic
+        },
+      ],
+    },
+    {
+      key: 12,
+      icon: <PieChartOutlined />,
+      label: <Link to="/about" onClick={handleClick}>عن الموقع</Link>, // About in Arabic
+    },
+    {
+      key: 13,
+      icon: <SettingOutlined />,
+      label: <Link to="/settings" onClick={handleClick}>الإعدادات</Link>, // Settings in Arabic
+    },
+  ];
+  
+  
+  const handleLanguage= (value) => {
+    setSelectedLanguage(value); // Update the state with the selected value
+    console.log('Selected language:', value); // Log or perform other actions with the value
+  };
+
   const siderStyle = {
     overflow: 'auto',
     height: '100vh',
@@ -217,6 +296,8 @@ const Home = () => {
     // scrollbarColor: 'unset',
   };
   
+  useEffect(()=>{    
+  },[])
   return (
     <Layout style={{minHeight: '100vh',}}>
       <Sider style={siderStyle}  collapsed={collapsed}  >
@@ -253,11 +334,11 @@ const Home = () => {
           } 
         </Menu>      */}
       <Menu
-              theme="dark"
+              theme="dark "
               mode="inline"
               defaultSelectedKeys={['0']}
-              style={{ height: '100%', borderRight: 0, padding: 0 }}
-              items={menuItems}
+              style={{ height: '100%', borderRight: 0, padding: 0 ,color:'white'}}
+              items={selectedLanguage==='english'?menuItems:menuItemsArabic}
             />
       </Sider>
       <Layout style={{}}>
@@ -273,8 +354,27 @@ const Home = () => {
             }}
           />
           <div className='w-full pe-5 flex justify-between items-center'>
-              <a href='/'>Quick</a> 
-              <a href="/login">LogOut</a>
+            <div>
+            <a href='/' className='font-bold font-serif text-lg '>{selectedLanguage==='english'?'Quick':'سريع'}</a> 
+            </div>
+              <div className='flex justify-between items-center gap-2 '>
+                  <Select
+                  showSearch
+                  placeholder={'Language'}
+                  optionFilterProp="children"
+                  onChange={handleLanguage}
+                  
+                  >
+                  <Select.Option key={1} value="english">
+                    English
+                  </Select.Option>
+                  <Select.Option key={2} value="arabic">
+                    العربية (Arabic)
+                  </Select.Option>
+                </Select>
+                {/* <Input type="text" /> */}
+                <a href="/login" className='w-full text-sm'>{selectedLanguage==='english'?'LogOut':"تسجيل الخروج"}</a>
+              </div>
           </div>
         </Header>
         <Content
@@ -297,7 +397,7 @@ const Home = () => {
           <div
             style={{
               padding: 10,
-              maxHeight: 510,
+              maxHeight: 525,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
               overflowY:'auto',
@@ -322,18 +422,17 @@ const Home = () => {
               <Route path='/change_password' element={<PasswordChange/>}></Route>
               <Route path='/permission-management' element={<PermissionManagement/>}></Route>
               <Route path='editpatient/:id' element={<Edit_patients/>}></Route>
-
-            </Routes>
+            </Routes>    
           </div>
         </Content>
-        {/* <Footer
+        <Footer
           style={{
             textAlign: 'center',
-            padding:'5px 30px'
+            padding:'2px 30px'
           }}
         >
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer> */}
+          Created by NPV © {new Date().getFullYear()}
+        </Footer>
       </Layout>
     </Layout>
   );

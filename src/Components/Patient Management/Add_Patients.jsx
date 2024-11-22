@@ -45,7 +45,7 @@ function Add_Patient () {
     fetchData();
   },[])
 return (
-  <div className='w-full sm:w-4/5 p-2 border rounded '>
+  <div className='w-full sm:w-4/5 p-5 border rounded '>
     <Form
       name="layout-multiple-horizontal"
       layout="vertical"
@@ -187,7 +187,7 @@ return (
 
     <Divider orientation="left">User Information</Divider>
     
-    <Row gutter={{xs: 8,sm: 16,md: 24,lg: 32,}} className='border-b'>
+    <Row gutter={{xs: 8,sm: 16,md: 24,lg: 32,}} className=''>
       {/* <Col className="gutter-row h-auto "  sm={8} xs={12}>
         <div >
         <Form.Item
@@ -331,7 +331,7 @@ return (
     
     <Divider orientation="left">Contact Information</Divider>
     
-      <Row gutter={{xs: 8,sm: 16,md: 24,lg: 32,}} className='border-b'>
+      <Row gutter={{xs: 8,sm: 16,md: 24,lg: 32,}} className=''>
       <Col className="gutter-row h-auto "  sm={16} xs={16}>
         <div >
         <Form.Item

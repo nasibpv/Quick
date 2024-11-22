@@ -48,23 +48,36 @@ function DashBoard(){
         { name: 'Jun', sales: 85 },
         { name: 'Jul', sales: 60 },
       ];
+      const dashboardEng=
+            {
+                name:'Dashboard',
+                shortCut1:'Appointment',
+                shortCut2:'Doctor',
+                shortCut3:'User'
+            }
+            console.log(dashboardEng);
+            
+      
       useEffect(()=>{
         const currentDate = new Date().toLocaleDateString();
         
         const fetchSource = async () => {
-            const result = await axios.post('http://localhost:3004/dashboard',{currentDate});
+            try{
+                const result = await axios.post('http://localhost:3004/dashboard',{currentDate});
            
-            console.log(result.data);
-
-            if(result.data.status){
-              setDataSource(result.data);
-            //   setFilteredData(data.data)// Initialize filtered data
+                console.log(result.data);
+    
+                if(result.data.status){
+                  setDataSource(result.data);
+                //   setFilteredData(data.data)// Initialize filtered data
+                }
+                else{
+                  console.log('api error ');
+                }
             }
-            else{
-              console.log('api error ');
-              
+            catch(error){
+                alert('please run backend project or check ',error)
             }
-          
           };
           fetchSource();
       },[])
@@ -122,23 +135,23 @@ function DashBoard(){
                     <div>
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4  lg:grid-cols-4 gap-2">
 
-                    <div className="col-span-1 rounded border border-blue-150" >
+                    <div className="col-span-1 rounded border border-gray-300" >
                     {/* <Link to={'/appointment'} style={style}> */}
-                         <div className='p-4 min-h-[120px] bg-gray-50 rounded '>
+                         <div className='p-4 min-h-[120px] bg-gray-200 rounded '>
                             <div className='flex gap-2  me-4'>
                                 <div className='rounded-full  w-10 h-10 flex justify-center items-center text-blue-500 bg-blue-200'><FormOutlined /></div>
                                 <div>
-                                   <p className='text-sm font-bold'>{dataSource.appointment}</p>
+                                   <p className='text-sm font-bold'>{dataSource.appointment?dataSource.appointment:"0"}</p>
                                    <p className='text-xs text-gray-400'>Appointment</p> 
                                 </div>
                             </div>
-                            <p className='text-xs mt-4 ms-2'><span className='text-blue-500'> {dataSource.todayAppointment}</span> Today appointment</p>
+                            <p className='text-xs mt-4 ms-2'><span className='text-blue-500'> {dataSource.todayAppointment?dataSource.todayAppointment:'0'}</span> Today appointment</p>
                          </div>
                         {/* </Link> */}
                     </div>
-                    <div className="col-span-1 rounded border border-blue-150" >
+                    <div className="col-span-1 rounded border border-gray-300" >
                     {/* <Link to={'/appointment'} style={style}> */}
-                         <div className='p-4 min-h-[120px] bg-gray-50 rounded '>
+                         <div className='p-4 min-h-[120px] bg-gray-200 rounded '>
                             <div className='flex gap-2  me-4'>
                                 <div className='rounded-full  w-10 h-10 flex justify-center items-center text-blue-500 bg-blue-200'><TeamOutlined/></div>
                                 <div>
@@ -150,9 +163,9 @@ function DashBoard(){
                          </div>
                         {/* </Link> */}
                     </div>
-                    <div className="col-span-1 rounded border border-blue-150" >
+                    <div className="col-span-1 rounded border border-gray-300" >
                     {/* <Link to={'/appointment'} style={style}> */}
-                         <div className='p-4 min-h-[120px] bg-gray-50 rounded '>
+                         <div className='p-4 min-h-[120px] bg-gray-200 rounded '>
                             <div className='flex gap-2  me-4'>
                                 <div className='rounded-full  w-10 h-10 flex justify-center items-center text-blue-500 bg-blue-200'><TeamOutlined/></div>
                                 <div>
@@ -164,9 +177,9 @@ function DashBoard(){
                          </div>
                         {/* </Link> */}
                     </div>
-                    <div className="col-span-1 rounded border border-blue-150" >
+                    <div className="col-span-1 rounded border border-gray-300" >
                     {/* <Link to={'/appointment'} style={style}> */}
-                         <div className='p-4 min-h-[120px] bg-gray-50 rounded '>
+                         <div className='p-4 min-h-[120px] bg-gray-200 rounded '>
                             <div className='flex gap-2  me-4'>
                                 <div className='rounded-full  w-10 h-10 flex justify-center items-center text-blue-500 bg-blue-200'><TeamOutlined/></div>
                                 <div>
